@@ -18,7 +18,7 @@ def calculate_frequences(text: str) -> dict:
     Calculates number of times each word appears in the text
     """
     dict_frequency = {}
-    if not isinstance(text, str): # change type - isinstance
+    if not isinstance(text, str):
         return dict_frequency
     text = text.lower()
     text = text.replace('\n', ' ')
@@ -41,7 +41,7 @@ def filter_stop_words(frequencies: dict, stop_words: tuple) -> dict:
     Removes all stop words from the given frequencies dictionary
     """
     dict_new = {}
-    if isinstance(frequencies, dict) and isinstance(stop_words, tuple): #type - isinstance()
+    if isinstance(frequencies, dict) and isinstance(stop_words, tuple):
         for k, i in frequencies.items():
             if isinstance(k, str) and k not in stop_words:
                 dict_new[k] = i
