@@ -1,3 +1,7 @@
+"""
+Labour work #2
+"""
+
 WORD_ONE = 'cookies'
 WORD_TWO = 'sometimes'
 
