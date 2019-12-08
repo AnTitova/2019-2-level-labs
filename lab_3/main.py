@@ -34,9 +34,9 @@ class WordStorage:
     def get_original_by(self, id: int) -> str:
         if not isinstance(id, int):
             return "UNK"
-        for k, v in self.storage.items():
-            if id == v:
-                return k
+        for keys, values in self.storage.items():
+            if id == values:
+                return keys
         return "UNK"
 
     def from_corpus(self, corpus: tuple):
@@ -72,13 +72,13 @@ class NGramTrie:
         return "OK"
 
     def calculate_log_probabilities(self):
-        for el in self.gram_frequencies:
+        for element in self.gram_frequencies:
             numbers = []
-            for k, v in self.gram_frequencies.items():
-                if el[: self.size - 1] == k[: self.size - 1]:
-                    numbers.append(v)
-            prob = self.gram_frequencies[el] / sum(numbers)
-            self.gram_log_probabilities[el] = math.log(prob)
+            for keys, values in self.gram_frequencies.items():
+                if element[: self.size - 1] == keys[: self.size - 1]:
+                    numbers.append(values)
+            prob = self.gram_frequencies[element] / sum(numbers)
+            self.gram_log_probabilities[element] = math.log(prob)
 
     def predict_next_sentence(self, prefix: tuple) -> list:
         if not isinstance(prefix, tuple) or len(prefix) != self.size - 1 or prefix == ():
