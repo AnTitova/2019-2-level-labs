@@ -1,5 +1,5 @@
-word_1 = 'cookies'
-word_2 = 'sometimes'
+WORD_ONE = 'cookies'
+WORD_TWO = 'sometimes'
 
 
 def generate_edit_matrix(num_rows: int, num_cols: int) -> list:

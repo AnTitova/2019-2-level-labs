@@ -31,11 +31,11 @@ class WordStorage:
             return -1
         return self.storage[word]
 
-    def get_original_by(self, id: int) -> str:
-        if not isinstance(id, int):
+    def get_original_by(self, id_of: int) -> str:
+        if not isinstance(id_of, int):
             return "UNK"
         for keys, values in self.storage.items():
-            if id == values:
+            if id_of == values:
                 return keys
         return "UNK"
 
@@ -91,9 +91,9 @@ class NGramTrie:
             list_n.append(gram_1)
         while prefix in list_n:
             prob_l = []
-            for k, v in self.gram_log_probabilities.items():
-                if prefix == k[:len(k) - 1]:
-                    prob_l.append((v, k))
+            for keys, values in self.gram_log_probabilities.items():
+                if prefix == keys[:len(keys) - 1]:
+                    prob_l.append((values, keys))
             prob_l.sort(reverse=True)
             sent.append(prob_l[0][1][-1])
             prefix = prob_l[0][1][1:]
