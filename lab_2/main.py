@@ -2,10 +2,6 @@
 Labour work #2
 """
 
-WORD_ONE = 'cookies'
-WORD_TWO = 'sometimes'
-
-
 def generate_edit_matrix(num_rows: int, num_cols: int) -> list:
     edit_matrix = []
     if isinstance(num_rows, int) and isinstance(num_cols, int):
